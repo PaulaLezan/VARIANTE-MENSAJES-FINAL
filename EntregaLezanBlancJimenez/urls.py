@@ -27,6 +27,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('Blog/', include('Blog.urls')),
     #path('Inicio/', inicio, name='inicio'),
+    path('Mensajes/', include('Mensajes.urls')),
     
 ]
 

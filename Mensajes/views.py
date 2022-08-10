@@ -33,7 +33,7 @@ def leerUsuarios (request):
 
 def inbox (request):
     if request.method == "GET":
-        
+
         mensaje_recibido= Mensajes.objects.filter(receptor=request.user)
         
         return render(request, 'Mensajes/inbox.html',{'users': User.objects.exclude(username=request.user.username)})
@@ -58,6 +58,5 @@ def crearMensajes(request):
 def leerMensajes (request, emisor, receptor):
        if request.method == "GET":
         return render(request, "chat/messages.html",{'users': User.objects.exclude(username=request.user.username),'receiver': User.objects.get(id=receiver),
-                       'messages': Mensajes.objects.filter(sender_id=emisor, receiver_id=receptor) |
-                                  Mensajes.objects.filter(sender_id=receptor, receiver_id=emisor)})
+                       'messages': Mensajes.objects.filter(sender_id=emisor, receiver_id=receptor) | Mensajes.objects.filter(sender_id=receptor, receiver_id=emisor)})
 
