@@ -5,7 +5,8 @@
 
 {% block titulo_pagina %}
 
-Crear Mensaje
+
+Mensajes
 
 {% endblock %}
 
@@ -13,7 +14,7 @@ Crear Mensaje
 
 {% block titulo %}
 
-<h1 class="mb-5">Crea un nuevo Mensaje</h1>
+<h1 class="mb-5">MENSAJES</h1>
 
 {% endblock %}
 
@@ -21,31 +22,23 @@ Crear Mensaje
 
 {% block que_cambia %}
 
-{% if Formulario.errors %}
+{% for mensajes_recibidos in mensajes %}
 
-    <p style="color: red;"> Faltan datos para el mensaje</p>
-
-    {% endif %}
-
-
-    <form action="{% url 'inbox' %}" method="POST" enctype="multipart/form-data">{% csrf_token %
-
-     
-        
-        <table>
-
-            {{ Formulario.as_table }}
+<li>{{ mensajes_recibidos }}</li>
+<button>
+    <a href="{% url 'leerMensajes' %}">Mensajes recibidos</a>
+</button>
+<button>
+    <a href="{% url 'crearMensajes' %}">Mensajes recibidos</a>
+</button>
 
 
-        </table>
 
+{% endfor %}
 
-        <input type="submit", value="Enviar">
-
-    </form>
 
     <br>
 
-    <a href="{% url 'verMensajes' %}">Ver mis mensajes</a>
+    <a href="{% url 'ver mensajes' %}">Ver mensajes</a>
 
 {% endblock %}

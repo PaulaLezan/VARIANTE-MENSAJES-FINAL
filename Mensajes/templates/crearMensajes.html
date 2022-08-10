@@ -1,0 +1,49 @@
+{% extends "AppEntrega1/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_pagina %}
+
+Crear Mensaje
+
+{% endblock %}
+
+
+
+{% block titulo %}
+
+<h1 class="mb-5">Crea un nuevo Mensaje</h1>
+
+{% endblock %}
+
+
+
+{% block que_cambia %}
+
+{% if formulario.errors %}
+    <p style="color: red"> HAY ALGO MAL EN EL MENSAJE </p>
+{% endif %}
+
+<form action= " {% url 'crearMensaje' %} " method="POST"> {% csrf_token %}
+    <table> 
+
+        {{ form.as_table }}
+
+    </table>
+
+    <input type="submit", value="Enviar">
+
+
+</form>
+
+{% for mensaje in mensajes %}
+
+    <li>{{ mensaje }}</li>
+
+
+{% endfor %}
+
+
+
+{% endblock %}

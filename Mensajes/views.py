@@ -33,6 +33,7 @@ def leerUsuarios (request):
 
 def inbox (request):
     if request.method == "GET":
+        
         mensaje_recibido= Mensajes.objects.filter(receptor=request.user)
         
         return render(request, 'Mensajes/inbox.html',{'users': User.objects.exclude(username=request.user.username)})

@@ -1,0 +1,39 @@
+{% extends "AppEntrega1/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_pagina %}
+
+Crear Mensaje
+
+{% endblock %}
+
+
+
+{% block titulo %}
+
+<h1 class="mb-5">Crea un nuevo Mensaje</h1>
+
+{% endblock %}
+
+
+
+{% block que_cambia %}
+
+{% for usuario in users %}
+
+    <li>{{ usuario }}</li>
+    <button>
+        <a href="{% url 'leerMensajes' %}">Mensajes recibidos</a>
+    </button>
+    <button>
+        <a href="{% url 'crearMensajes' %}">Mensajes recibidos</a>
+    </button>
+
+
+
+{% endfor %}
+
+
+{% endblock %}

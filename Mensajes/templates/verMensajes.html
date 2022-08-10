@@ -1,0 +1,51 @@
+{% extends "AppEntrega1/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_pagina %}
+
+
+Mensajes
+
+{% endblock %}
+
+
+
+{% block titulo %}
+
+<h1 class="mb-5">MENSAJES</h1>
+
+{% endblock %}
+
+
+
+{% block que_cambia %}
+
+{% for usuario in users %}
+
+<p>Emisor: <i>{{ emisor.user.nombre }}</i></p>
+<p>APELLIDO: <i>{{ emisor.user.apellido }}</i></p>
+<p>Mensaje: <i>{{ emisor.user.mensajes_recibidos }}</i></p>
+<p>Fecha y hora: <i>{{ emisor.user.created_at }}</i></p>
+
+{% endfor %}
+
+
+
+    <br>
+
+    <a href="{% url 'ver mensajes' %}">Ver mensajes</a>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
